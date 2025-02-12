@@ -13,3 +13,5 @@ Route::get('/greeting', function () {
 });
 
 Route::get('/hello', [GreetControler::class, 'hello']);
+
+Route::resource('tasks', index::class);
