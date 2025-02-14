@@ -1,3 +1,18 @@
-<div>
-    <!-- I have not failed. I've just found 10,000 ways that won't work. - Thomas Edison -->
-</div>
+@extends(layouts.app)
+
+@section('content')
+    <h1>All Tasks</h1>
+    <a href="{{ route('tasks.create') }}">Create New Tasks</a>
+    <ul>
+        @foreach($tasks as $task)
+            <li>
+                <a href="{{ route('tasks.show', $task->id) }}">{{ $task->title }}</a>
+                <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" style="display: inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        @endforeach
+    </ul>
+@endsection
