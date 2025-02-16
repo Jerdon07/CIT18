@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\index;
+use App\Http\Controllers\index; // DEFAULT LARAVEL WELCOME PAGE
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GreetControler;
-use App\Http\Controllers\tasksController;
+use App\Http\Controllers\GreetControler; // SIMPLE ROUTING TO VIEWS
+use App\Http\Controllers\tasksController; // MIGRATION AND MODEL
 use App\Http\Controllers\ItemController;
 
 // Default Laravel Welcome Page
@@ -19,9 +19,9 @@ Route::get('/hello', function () {
 // Calling GreetControler's hello method
 Route::get('/hello', [GreetControler::class, 'hello']);
 
-
-
-Route::resource('tasks', tasksController::class);
+// ACTIVITY: MIGRATION AND MODEL
+// Route to tasksController
+Route::resource('tasks', TasksController::class);
 
 Route::get('/items', [ItemController::class, 'index']);
 Route::get('/items/{id}', [ItemController::class, 'show']);
