@@ -15,3 +15,7 @@ Route::get('/greeting', function () {
 Route::get('/hello', [GreetControler::class, 'hello']);
 
 Route::resource('tasks', tasksController::class);
+
+Route::get('/test', function () {
+    return view('layout/layout');
+});
